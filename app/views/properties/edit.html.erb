@@ -1,0 +1,58 @@
+<h>Edit Properties Details</h>
+<%= form_for @property, url:  property_path(@property.id),method: :patch  do |f| %>
+ <p>
+    <%= f.label :Construct_date %><br>
+    <%= f.text_field :construct_date %>
+  </p>
+  
+  <p>
+    <%= f.label :Land_Area %><br>
+    <%= f.text_field :land_area %>
+  </p>
+  <p>
+    <%= f.label :Covered_Area %><br>
+    <%= f.text_field :covered_area %>
+  </p>
+  <p>
+    <%= f.label :Bed_Rooms %><br>
+    <%= f.text_field :bedrooms %>
+  </p>
+  <p>
+    <%= f.label :Bathrooms %><br>
+    <%= f.text_field :bathrooms %>
+  </p>
+  <p>
+    <%= f.label :Street %><br>
+    <%= f.text_field :street %>
+  </p>
+  <p>
+    <%= f.label :Locality %><br>
+    <%= f.text_field :locality %>
+  </p>
+  
+  <p>
+    <%= f.label :City %><br>
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :State %><br>
+    <%= f.text_field :state %>
+    <p>
+    <%= f.label :Country %><br>
+    <%= f.text_field :country %>
+  </p>
+  <p>
+    <%= f.label :Rental_Prize %><br>
+    <%= f.text_field :rental_prize %>
+  </p>
+  <p>
+    <%= f.label :Selling_Prize%><br>
+    <%= f.text_field :selling_prize %>
+  </p>
+  <p>
+    <%= f.label :Pincode %><br>
+    <%= f.text_field :pincode %>
+  </p>
+  <p class="button"><%= f.submit %>
+  </p>
+<% end %>

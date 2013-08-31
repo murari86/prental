@@ -1,0 +1,30 @@
+class RegistrationsController < ApplicationController
+  def index
+  
+    
+  end
+  
+  def new 
+    @reg = User.new 
+  end
+  
+  def create
+     @reg = User.new(params[:registration].permit(:email_id, :password, :confirm_password))
+     if @reg.save
+      redirect_to '/users/new'
+      else
+      render "new"
+     end 
+  end  
+  def login
+  
+  
+  end
+  
+  
+  
+   
+end 
+
+  
+  
