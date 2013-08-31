@@ -1,6 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+  .signup {
+    border: 7px solid #CCCCCC;
+    clear: both;
+    padding: 5px;
+    height: 215px;
+  }
+  .field_with_errors{
+    color:red;
+  }
+  .lebel{
+    width:200px;
+    float:left;
+  }
+  .field{
+    width:200px;
+    float:left;
+  }
+  .input_row {
+      clear: both;
+      padding: 5px;
+  }
+  .login_form {
+      border: 7px solid #CCCCCC;
+      height: 90px;
+      margin: auto;
+      padding: 5px;
+      width: 400px;
+  }
+  .login_form .lebel{
+     width: 156px;
+  }
+  #errorExplanation {
+      clear: both;
+      color: red;
+      padding: 6px;
+  }
+  .login_button, .signup_button{
+      margin:5px;
+      float:right;
+  }
+  </style>
   <title>Prental</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>

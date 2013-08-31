@@ -1,8 +1,8 @@
-<h1>WELCOME USER</h1>
-<a href="http://localhost:3000/users/new">Register</a>
-<a href="http://localhost:3000/users/login">Login</a>
-<%= form_tag properties_path, :method => :get do %>
-  <%= text_field_tag :title, params[:title] %>
-  <%= submit_tag "Search"%>
- 
-<% end %>
+<div style="width: 350px; margin: auto;">
+  <h1>WELCOME Prental</h1>
+  <div style="text-align:center;">  <a href="/users/signup">Signup</a> /  <a href="/users/login">Login</a></div>
+  <%= form_tag properties_path, :method => :get do %>
+    <%= text_field_tag :title, params[:title] %>
+    <%= submit_tag "Search"%>
+  <% end %>
+</div>

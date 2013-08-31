@@ -1,3 +1,16 @@
+    <div>
+      <% if @user.errors.any? %>
+        <div id="errorExplanation">
+          <h2><%= pluralize(@user.errors.count, "below error found") %>:</h2>
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
 <h>Edit User Details</h>
 <%= form_for @user, url:  user_path(@user.id)  ,method: :patch  do |f| %>
   <h> User_Profile_form </h>

@@ -1,7 +1,7 @@
 <%= link_to "Create Properties", new_property_path %>
 
 <%= link_to "List of All properties",  properties_path %>
-<%= link_to "logout", login_users_path %>
+<%= link_to "logout", logout_users_path %>
 <%= form_tag properties_path, :method => :get do %>
   <%= text_field_tag :title, params[:title] %>
   <%= submit_tag "Search"%>

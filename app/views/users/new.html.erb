@@ -1,35 +1,54 @@
-<h> User_Registration_form </h>
-<%= form_for :user, url: users_path do |f| %>
- <% if @user.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited
-      this registration from being saved:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+<div style="width: 470px; margin: auto;" >
+    <div>
+      <% if @user.errors.any? %>
+        <div id="errorExplanation">
+          <strong><%= pluralize(@user.errors.count, "below error found") %>:</strong>
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+  <div class="signup">
+    <%= form_for :user, url: signup_users_path do |f| %>
+      <div class="input_row">
+        <div class="lebel"><%= f.label :email %></div>
+        <div class="field"><%= f.text_field :email %></div>
+      </div>
+
+      <div class="input_row">
+        <div class="lebel"><%= f.label :password %></div>
+        <div class="field"><%= f.password_field :password %></div>
+      </div>
+
+      <div class="input_row">
+        <div class="lebel"><%= f.label :password_confirmation %></div>
+        <div class="field"><%= f.password_field :password_confirmation %></div>
+      </div>
+
+      <div class="input_row">
+        <div class="lebel"><%= f.label :first_name %></div>
+        <div class="field"><%= f.text_field :first_name %></div>
+      </div>
+
+      <div class="input_row">
+        <div class="lebel"><%= f.label :last_name %></div>
+        <div class="field"><%= f.text_field :last_name %></div>
+      </div>
+
+      <div class="input_row">
+        <div class="lebel"><%= f.label :Phone_no %></div>
+        <div class="field"><%= f.text_field :phone_no %></div>
+      </div>  
+
+      <div class="signup_button">
+        <%= f.submit 'Signup' %>
+      </div>  
     <% end %>
-    </ul>
   </div>
-  <% end %>
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-   <p>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-    <p>
-    <p>
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-    <p>
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-    <p>
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-    <p>
-    <%= f.label :Phone_no %><br>
-    <%= f.text_field :phone_no %>
-    <p class="button"><%= f.submit 'SignUp' %>
-<% end %>
+  
+</div>
   

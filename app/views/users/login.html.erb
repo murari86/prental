@@ -1,13 +1,22 @@
-<h> User Login Successfully </h>
-  <%= form_for :user, url: authenticate_user_users_path do |f| %>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </p>
-    <%= f.submit 'SignIn' %>
-  </p>
-<% end %>
+
+<div class="login_form">
+  <%= form_for :user, url: login_users_path do |f| %>
+    <div class="input_row">
+        <div class="lebel"><%= f.label :email %></div>
+        <div class="field"><%= f.text_field :email %></div>
+    </div>
+
+    <div class="input_row">
+        <div class="lebel"><%= f.label :password %></div>
+        <div class="field"><%= f.password_field :password %></div>
+    </div>
+    
+    <div style="clear:both;">
+      <% if @error %><div id="errorExplanation" style="float:left"><%= @error %></div><% end %>
+      <div class="login_button" style="float:right"><%= f.submit 'Login' %></div>  
+    </div>
+
+  <% end %>
+
+</div>
+

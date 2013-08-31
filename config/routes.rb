@@ -1,7 +1,5 @@
 Prental::Application.routes.draw do
-   
-   
-  
+
   resources :sessions
   
   resources :properties do
@@ -10,22 +8,23 @@ Prental::Application.routes.draw do
      end
   end
    
-   resources :users do
+   resources :users, :except => [:new] do
      collection do
        get 'login'
+       post 'login'
+       get 'logout'
+       get 'signup', to: 'users#new'
+       post 'signup', to: 'users#signup'    
        post 'authenticate_user'
      end
    end 
   
-
-   
-     
    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root to: 'home#index'
+  root to: 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

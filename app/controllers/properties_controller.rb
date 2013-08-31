@@ -36,7 +36,9 @@ class PropertiesController < ApplicationController
   end
   
   def search
-
+    if not session[:user_id]
+      redirect_to login_users_path
+    end
   end
   
   
