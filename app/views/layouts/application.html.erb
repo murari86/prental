@@ -2,6 +2,27 @@
 <html>
 <head>
   <style>
+  .header {
+      background: none repeat scroll 0 0 #000000;
+      margin-bottom: 15px;
+      margin-top: 15px;
+      padding: 2px;
+  }
+  .menu{
+      margin-left: 50px;
+  }
+  .menu span {
+      color: #BBBBBB;
+      font-family: arial,sans-serif;
+      font-size: 15px;
+      font-weight: bold;
+  }
+  .menu a{
+    text-decoration: none;
+  }
+  .menu span:hover{
+    color: #FFF !important;
+  }
   .signup {
     border: 7px solid #CCCCCC;
     clear: both;
@@ -43,14 +64,21 @@
       float:right;
   }
   </style>
+
   <title>Prental</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <div class="header">
+    <div class="menu">
+      <a href="/"><span>Home</span></a> /
+      <a href="/users/signup"><span>Signup</span></a> /    
+      <a href="/users/login"><span>Login</span></a>
+    </div>
+  </div>
+  <%= yield %>
 
 </body>
 </html>
