@@ -6,6 +6,8 @@ gem 'json'
 gem 'therubyracer', :platform => :mri
 gem 'therubyrhino', ">=1.73.3", :platform => :jruby
 
+gem "paperclip", "~> 3.0"
+
 gem 'execjs'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'protected_attributes'

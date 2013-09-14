@@ -16,7 +16,7 @@
     
   <div class="add_properties">
   
-   <%= form_for :property,  url: properties_path(:id) do |f| %>
+   <%= form_for :property, :html => { :multipart => true }, :url => properties_path(:id) do |f| %>
     <div class="lebel"><%= f.label :title %></div>
     <div class="field"><%= f.text_field :title %> </div>
  
@@ -46,8 +46,8 @@
     <div class="lebel"><%= f.label :Category %></div>
     <div class="field"><%= f.select :category, options_for_select(category) %></div>
     
-    <div class="lebel"><%= f.label :image %></div>
-    <div class="field"><%= f.file_field :image %><%= submit_tag %></div>
+    <div class="lebel"><%= f.label :Image %></div>
+    <div class="field"><%= f.file_field :avatar %></div>
 
      
     <div class="lebel"><%= f.label :Street %></div>

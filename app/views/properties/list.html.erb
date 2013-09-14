@@ -3,15 +3,19 @@
     <th>list of all properties</th>
   </tr>
  
-<% @properties.each do |property| %>
+<% @property.each do |property| %>
   <tr>
-    <tr>
     <td><%= property.locality %></td>
+    <td><%= property.street %></td>
     <td><%= property.city %></td>
     <td><%= property.state %></td>
+    <td><%= property.image %></td>
     <td><%= property.country %></td>
     <td><%= property.rental_prize %></td>
+    <td><%= property.land_area %></td>
     <td><%= property.selling_prize %></td>
+    <td><%= property.pincode %></td>
+    <td><%= property.construct_date %></td>
     <td><%= link_to 'Show', property_path(property.id) %></td>
     
   </tr>

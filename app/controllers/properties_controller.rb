@@ -10,26 +10,27 @@ class PropertiesController < ApplicationController
   def create
     if session[:user_id]
       @user = User.find(session[:user_id])
-      @property = @user.properties.create(params[:property].permit(:title, :property_type, :category, :image, :construct_date, :land_area, :covered_area, :bedrooms, :bathrooms, :street, :locality, :city, :state, :country, :rental_prize, :selling_prize, :pincode))
+      @property = @user.properties.create(params[:property].permit(:title, :avatar, :property_type, :category, :construct_date, :land_area, :covered_area, :bedrooms, :bathrooms, :street, :locality, :city, :state, :country, :rental_prize, :selling_prize, :pincode))
       if @property.save
          redirect_to @property
       else
-         render :new
+       render :new
       end      
     else
       redirect_to login_users_path
     end  
-  end  
+  end
    
   def show
+    puts "#{@property}"
     @property = Property.find(params[:id])  
   end
   
   def edit
-    if session[:user_id]
-     @property = Property.find(params[:id])
-    else
+    if not session[:user_id]
       redirect_to login_users_path
+    else  
+     @property = Property.find(params[:id])
     end   
   end
   
@@ -44,32 +45,23 @@ class PropertiesController < ApplicationController
   end
 
   def index
-    if !params[:title].blank?
-      @properties = Property.where("properties.title LIKE ?" , "%#{params[:title]}%")
-    elsif current_user
-      @properties = current_user.properties
-    else
-      @properties = Property.all 
-    end
+     @property = Property.search(params[:title])
+    #if !params[:title].blank?
+     # @property = Property.where("properties.title LIKE ?" , "%#{params[:title]}%")
+  #  else current_user
+   #   @property = current_user.properties
+   # end
   end
   
-  def search
-    if not session[:user_id]
-      redirect_to login_users_path
-    end
-  end
-  
-  def uploadFile
-    post = Property.save(params[:image])
-    render :text => "File has been uploaded successfully"
-  end
-  
-  def list
-    if not session[:user_id]
-      redirect_to login_users_path
-    end
-    @properties =  Property.where("user_id = ?", session[:user_id])
     
+  def list
+    if session[:user_id]
+      @property =  Property.where("user_id = ?", session[:user_id])
+    else 
+      @property = Property.all
+    end
   end
   
-end
+end  
+  
+

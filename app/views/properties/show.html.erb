@@ -32,7 +32,7 @@
 
 <p>
   <strong>image:</strong>
-  <%= @property.image %>
+  <%= image_tag @property.avatar.url(:thumb) %>  
 </p>
 
 
@@ -114,9 +114,39 @@
   <p>
     <%= f.submit %>
   </p>
+<% end %> 
+
+<h2>Property_Application_Detail</h2>
+<% @property.applications.each do |user_app| %>
+<p>
+  <strong>Email_ID:</strong>
+  <%= user_app.email %>
+</p>
+
+<p>
+  <strong>Start_date:</strong>
+  <%= user_app.start_date %>
+</p>
+
+<p>
+  <strong>End_date:</strong>
+  <%= user_app.end_date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= user_app.status %>
+</p>
+
+<p>
+  <strong>Phone_no:</strong>
+  <%= user_app.phone_no %>
+</p>
 <% end %>
 
 
+<%= link_to "apply", new_property_application_path(@property.id) %>
+  
 <%= link_to "Edit", edit_property_path(@property.id) %>
 
 

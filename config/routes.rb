@@ -2,13 +2,18 @@ Prental::Application.routes.draw do
 
   resources :sessions
   
+  
   resources :properties, :except => [:new] do
     collection do
        get 'list'
-       get 'search'
+       
        get 'add', to: 'properties#new'
+       get 'search' 
+       post 'search'
     end
     resources :comments
+    resources :applications
+    
   end
    
    resources :users, :except => [:new] do
@@ -21,7 +26,7 @@ Prental::Application.routes.draw do
        post 'authenticate_user'
     end
    end 
-  
+    
    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
