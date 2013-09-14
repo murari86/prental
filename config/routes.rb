@@ -2,21 +2,24 @@ Prental::Application.routes.draw do
 
   resources :sessions
   
-  resources :properties do
-   collection do
+  resources :properties, :except => [:new] do
+    collection do
+       get 'list'
        get 'search'
-     end
+       get 'add', to: 'properties#new'
+    end
+    resources :comments
   end
    
    resources :users, :except => [:new] do
-     collection do
+    collection do
        get 'login'
        post 'login'
        get 'logout'
        get 'signup', to: 'users#new'
        post 'signup', to: 'users#signup'    
        post 'authenticate_user'
-     end
+    end
    end 
   
    

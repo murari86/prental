@@ -7,6 +7,7 @@ class EmailValidator < ActiveModel::EachValidator
 end
 
 class User < ActiveRecord::Base
+  has_many :properties
 
   validates :email, presence: true, uniqueness: true, email: true
   validates :password, presence: true, length: { minimum: 4 }
@@ -14,12 +15,12 @@ class User < ActiveRecord::Base
   validates :phone_no, presence: true, length: { minimum: 10 }
 
   attr_accessible :password_confirmation, :user_id
-  attr_accessible :password, :email, :first_name, :last_name, :phone_no
+  attr_accessible :password, :email, :first_name, :last_name, :phone_no, :role
   before_create :check_password_confirmation
   has_many :properties
 
   def self.authenticate(email, password)
-    @user = User.where(email: email, password: password).first
+    @user = User.where(:email => email, :password => password).first
     if @user
       @user
     else
@@ -29,7 +30,6 @@ class User < ActiveRecord::Base
   
   private
   def check_password_confirmation
-    print "xxxxxxxxxx" + self.password_confirmation
     unless self.password == self.password_confirmation
       self.errors.add(:password, 'please enter correct passoword_confirmation')
     end

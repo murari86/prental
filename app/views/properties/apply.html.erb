@@ -1,0 +1,17 @@
+<%= form_for :apply, url: apply_properties_path(:id) do |f| %>
+  <div class="apply_property">
+    <p>
+    <div class="lebel"><%= f.label :ApplicantId %></div>
+    <div class="field"><%= f.text_field :applicant_id %> </div></p>
+    <p>
+    <div class="lebel"><%= f.label :Applicant_date %></div>
+    <div class="field"><%= f.text_field :applicant_date %></div></p>
+    <p>
+    <div class="lebel"><%= f.label :status %></div>
+    <div class="field"><%= f.text_field :status %></div></p>
+    
+    
+  
+    <div class="apply_button"><%= f.submit 'apply' %></div>
+  <% end %>
+  </div>

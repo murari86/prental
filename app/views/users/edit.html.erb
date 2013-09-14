@@ -1,7 +1,8 @@
+<div style="width: 470px; margin: auto;" >
     <div>
       <% if @user.errors.any? %>
         <div id="errorExplanation">
-          <h2><%= pluralize(@user.errors.count, "below error found") %>:</h2>
+          <strong><%= pluralize(@user.errors.count, "below error found") %>:</strong>
           <ul>
           <% @user.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -11,25 +12,49 @@
       <% end %>
     </div>
 
-<h>Edit User Details</h>
-<%= form_for @user, url:  user_path(@user.id)  ,method: :patch  do |f| %>
-  <h> User_Profile_form </h>
-   <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-   <p>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-   <p>
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-   <p>
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-   <p>
-    <%= f.label :Phone_no %><br>
-    <%= f.text_field :phone_no %>
-   <p>
-    <%= f.submit %>
-<% end %>
-<%= link_to 'Back', users_path %>
+  <h3>Edit User Profile</h3>
+  <div class="edituser_form">
+    <%= form_for :user, url:  user_path(@user.id)  ,method: :patch  do |f| %>
+      
+      <div class="input_row">
+        <div class="lebel"><%= f.label :email %></div>
+        <div class="field"><%= f.text_field :email %></div>
+      </div>
+
+      <div class="input_row">
+        <div class="lebel"><%= f.label :password %></div>
+        <div class="field"><%= f.password_field :password %></div>
+      </div>
+
+      <div class="input_row">
+        <div class="lebel"><%= f.label :password_confirmation %></div>
+        <div class="field"><%= f.password_field :password_confirmation %></div>
+      </div>
+      
+      <div class="input_row">
+        <div class="lebel"><%= f.label :role %></div>
+        <div class="field"><%= f.select :role, options_for_select(%w[owner tenent buyer]) %></div>
+      </div>
+
+      <div class="input_row">
+        <div class="lebel"><%= f.label :first_name %></div>
+        <div class="field"><%= f.text_field :first_name %></div>
+      </div>
+
+      <div class="input_row">
+        <div class="lebel"><%= f.label :last_name %></div>
+        <div class="field"><%= f.text_field :last_name %></div>
+      </div>
+
+      <div class="input_row">
+        <div class="lebel"><%= f.label :Phone_no %></div>
+        <div class="field"><%= f.text_field :phone_no %></div>
+      </div>  
+
+      <div class="update_user_button">
+        <%= f.submit 'UpdateUser' %>
+      </div>  
+    <% end %>
+  </div>
+</div>
+

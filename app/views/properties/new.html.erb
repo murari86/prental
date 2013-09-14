@@ -1,64 +1,80 @@
-<h> PROFILE OF PROPERTIES </h>
-<%= form_for :@properties, url: properties_path do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- <p>
-    <%= f.label :Construct_date %><br>
-    <%= f.text_field :construct_date %>
-  </p>
+
+ <div style="width: 470px; margin: auto;" >
+  <h2> Add Property </h2>
+    <div>
+      <% if @property.errors.any? %>
+        <div id="errorExplanation">
+          <strong><%= pluralize(@property.errors.count, "below error found") %>:</strong>
+          <ul>
+          <% @property.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+    
+  <div class="add_properties">
   
-  <p>
-    <%= f.label :Land_Area %><br>
-    <%= f.text_field :land_area %>
-  </p>
-  <p>
-    <%= f.label :Covered_Area %><br>
-    <%= f.text_field :covered_area %>
-  </p>
-  <p>
-    <%= f.label :Bed_Rooms %><br>
-    <%= f.text_field :bedrooms %>
-  </p>
-  <p>
-    <%= f.label :Bathrooms %><br>
-    <%= f.text_field :bathrooms %>
-  </p>
-  <p>
-    <%= f.label :Street %><br>
-    <%= f.text_field :street %>
-  </p>
-  <p>
-    <%= f.label :Locality %><br>
-    <%= f.text_field :locality %>
-  </p>
+   <%= form_for :property,  url: properties_path(:id) do |f| %>
+    <div class="lebel"><%= f.label :title %></div>
+    <div class="field"><%= f.text_field :title %> </div>
+ 
+ 
+    <div class="lebel"><%= f.label :Construct_date %></div>
+    <div class="field"><%= f.text_field :construct_date %></div>
   
-  <p>
-    <%= f.label :City %><br>
-    <%= f.text_field :city %>
-  </p>
-  <p>
-    <%= f.label :State %><br>
-    <%= f.text_field :state %>
-    <p>
-    <%= f.label :Country %><br>
-    <%= f.text_field :country %>
-   </p>
-  <p>
-    <%= f.label :Rental_Prize %><br>
-    <%= f.text_field :rental_prize %>
-  </p>
-  <p>
-    <%= f.label :Selling_Prize%><br>
-    <%= f.text_field :selling_prize %>
-  </p>
-  <p>
-    <%= f.label :Pincode %><br>
-    <%= f.text_field :pincode %>
-  </p>
+    <div class="lebel"><%= f.label :Land_Area %></div>
+    <div class="field"><%= f.text_field :land_area %></div>
   
+    <div class="lebel"><%= f.label :Covered_Area %></div>
+    <div class="field"><%= f.text_field :covered_area %></div>
   
-     <%= f.submit 'CreateProperties' %>
-  </p>
-<% end %>
+    <div class="lebel"><%= f.label :Bed_Rooms %></div>
+    <div class="field"><%= f.text_field :bedrooms %></div>
+ 
+    <div class="lebel"><%= f.label :Bathrooms %></div>
+    <div class="field"><%= f.text_field :bathrooms %></div>
+    
+    
+    <% property = [['rental', 1], ['resedential', 2]] %>
+    
+    <div class="lebel"><%= f.label :Property_Type %></div>
+    <div class="field"><%= f.select :property_type, options_for_select(property) %></div>
+    
+    <% category = [['2bhk', 1], ['3bhk', 2], ['4bhk', 3], ['5bhk', 4]] %>
+    <div class="lebel"><%= f.label :Category %></div>
+    <div class="field"><%= f.select :category, options_for_select(category) %></div>
+    
+    <div class="lebel"><%= f.label :image %></div>
+    <div class="field"><%= f.file_field :image %><%= submit_tag %></div>
+
+     
+    <div class="lebel"><%= f.label :Street %></div>
+    <div class="field"><%= f.text_field :street %></div>
+  
+    <div class="lebel"><%= f.label :Locality %></div>
+    <div class="field"><%= f.text_field :locality %></div>
+  
+    <div class="lebel"><%= f.label :City %></div>
+    <div class="field"><%= f.text_field :city %></div>
+  
+    <div class="lebel"><%= f.label :State %></div>
+    <div class="field"><%= f.text_field :state %></div>
+    
+    <div class="lebel"><%= f.label :Country %></div>
+    <div class="field"><%= f.text_field :country %></div>
+   
+    <div class="lebel"><%= f.label :Rental_Prize %></div>
+    <div class="field"><%= f.text_field :rental_prize %></div>
+  
+    <div class="lebel"><%= f.label :Selling_Prize%></div>
+    <div class="field"><%= f.text_field :selling_prize %></div>
+  
+    <div class="lebel"><%= f.label :Pincode %></div>
+    <div class="field"><%= f.text_field :pincode %></div>
+  
+     <div class="add_properties_button"><%= f.submit 'Save' %></div>
+  <% end %>
+  </div>
+</div>

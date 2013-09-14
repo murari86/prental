@@ -1,78 +1,122 @@
-<h>Properties Profile</h>
-
+<h>Property Detail</h>
 <p>
   <strong>title:</strong>
-  <%= @propertie.title %>
+  <%= @property.title %>
 </p>
 <p>
   <strong>User_id:</strong>
-  <%= @propertie.user_id %>
+  <%= @property.user_id %>
 </p>
 
 
 <p>
   <strong>Construct_Date:</strong>
-  <%= @propertie.construct_date %>
+  <%= @property.construct_date %>
 </p>
 
 
 <p>
   <strong>Land_Area:</strong>
-  <%= @propertie.land_area %>
+  <%= @property.land_area %>
 </p>
 
 <p>
   <strong>Covered_Area:</strong>
-  <%= @propertie.covered_area %>
+  <%= @property.covered_area %>
 </p> 
 
 <p>
+  <strong>Property_Type:</strong>
+  <%= @property.property_type %>
+</p>
+
+<p>
+  <strong>image:</strong>
+  <%= @property.image %>
+</p>
+
+
+<p>
+  <strong>Category:</strong>
+  <%= @property.category %>
+</p>
+
+
+<p>
   <strong>Bed_Rooms :</strong>
-  <%= @propertie.bedrooms %>
+  <%= @property.bedrooms %>
 </p>
 
 <p>
   <strong>Bathrooms :</strong>
-  <%= @propertie.bathrooms %>
+  <%= @property.bathrooms %>
 </p>
 
 <p>
   <strong>Street:</strong>
-  <%= @propertie.street %>
+  <%= @property.street %>
 </p>
 <p>
   <strong>Locality:</strong>
-  <%= @propertie.locality %>
+  <%= @property.locality %>
 </p>
 <p>
   <strong>City:</strong>
-  <%= @propertie.city %>
+  <%= @property.city %>
 </p>
 
 <p>
   <strong>State:</strong>
-  <%= @propertie.state %>
+  <%= @property.state %>
 </p>
 
 <p>
   <strong>Country:</strong>
-  <%= @propertie.country %>
+  <%= @property.country %>
 </p>
 
 <p>
   <strong>Rental_Prize:</strong>
-  <%= @propertie.rental_prize %>
+  <%= @property.rental_prize %>
 </p>
 <p>
   <strong>Selling_Prize:</strong>
-  <%= @propertie.selling_prize %>
+  <%= @property.selling_prize %>
 </p>
 <p>
   <strong>Pincode:</strong>
-  <%= @propertie.pincode %>
+  <%= @property.pincode %>
 </p>
 
+<h2>Comments</h2>
+<% @property.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+ 
+<h2>Add a comment:</h2>
+<%= form_for([@property, @property.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br />
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
-<%= link_to "Edit", edit_property_path(@propertie.id) %>
+
+<%= link_to "Edit", edit_property_path(@property.id) %>
 
 

@@ -3,6 +3,7 @@
   <div style="text-align:center;">  <a href="/users/signup">Signup</a> /  <a href="/users/login">Login</a></div>
   <%= form_tag properties_path, :method => :get do %>
     <%= text_field_tag :title, params[:title] %>
-    <%= submit_tag "Search"%>
+    <%= submit_tag "Search"%> 
   <% end %>
+  
 </div>

@@ -28,6 +28,11 @@
         <div class="lebel"><%= f.label :password_confirmation %></div>
         <div class="field"><%= f.password_field :password_confirmation %></div>
       </div>
+      
+      <div class="input_row">
+        <div class="lebel"><%= f.label :role %></div>
+        <div class="field"><%= f.select :role, options_for_select(%w[owner tenent buyer]) %></div>
+      </div>
 
       <div class="input_row">
         <div class="lebel"><%= f.label :first_name %></div>

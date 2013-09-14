@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130831111907) do
+ActiveRecord::Schema.define(version: 20130908043836) do
 
   create_table "books", force: true do |t|
     t.string   "title"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 20130831111907) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comments", force: true do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "property_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["property_id"], name: "index_comments_on_property_id", using: :btree
 
   create_table "properties", force: true do |t|
     t.string   "city"
@@ -32,14 +42,15 @@ ActiveRecord::Schema.define(version: 20130831111907) do
     t.string   "locality"
     t.string   "street"
     t.float    "selling_prize"
-    t.integer  "user_id"
-    t.integer  "type"
+    t.integer  "property_type"
     t.integer  "category"
     t.float    "land_area"
     t.float    "covered_area"
     t.integer  "bathrooms"
     t.integer  "bedrooms"
     t.string   "title"
+    t.integer  "user_id"
+    t.string   "image"
   end
 
   create_table "users", force: true do |t|

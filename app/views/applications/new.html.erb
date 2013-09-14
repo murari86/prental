@@ -1,0 +1,32 @@
+<div class="apply_property">
+  <%= form_for :app, url: property_applications_path do |f| %>
+  
+    <div class="input_row">
+    <div class="lebel"><%= f.label :Email_Id %></div>
+    <div class="field"><%= f.text_field :email %> </div>
+    </div>  
+    
+    <div class="input_row">
+    <div class="lebel"><%= f.label :Start_date %></div>
+    <div class="field"><%= f.text_field :start_date %></div>
+    </div>  
+    
+    <div class="input_row">
+    <div class="lebel"><%= f.label :End_date %></div>
+    <div class="field"><%= f.text_field :end_date %></div>
+    </div>  
+    
+    <div class="input_row">
+    <% status = [['new user', 1], ['existing user', 2]] %>
+    <div class="lebel"><%= f.label :Status %></div>
+    <div class="field"><%= f.select :status, options_for_select(status) %></div>
+    </div>  
+    
+    <div class="input_row">
+    <div class="lebel"><%= f.label :Phone_no %></div>
+    <div class="field"><%= f.text_field :phone_no %></div>
+    </div>  
+  
+    <div class="apply_button"><%= f.submit 'apply' %></div>
+  <% end %>
+</div>

@@ -6,10 +6,11 @@
       background: none repeat scroll 0 0 #000000;
       margin-bottom: 15px;
       margin-top: 15px;
-      padding: 2px;
+      padding: 20px;
   }
   .menu{
-      margin-left: 50px;
+      margin-left: 5px;
+      margin-right: 5px;
   }
   .menu span {
       color: #BBBBBB;
@@ -23,11 +24,17 @@
   .menu span:hover{
     color: #FFF !important;
   }
+  .user_nav{
+    float: left;
+  }
+  .properties_nav{
+    float: right;
+  }
   .signup {
     border: 7px solid #CCCCCC;
     clear: both;
     padding: 5px;
-    height: 215px;
+    height: 240px;
   }
   .field_with_errors{
     color:red;
@@ -46,7 +53,7 @@
   }
   .login_form {
       border: 7px solid #CCCCCC;
-      height: 90px;
+      height: 100px;
       margin: auto;
       padding: 5px;
       width: 400px;
@@ -63,6 +70,28 @@
       margin:5px;
       float:right;
   }
+  .edituser_form {
+    border: 7px solid #CCCCCC;
+    clear: both;
+    padding: 5px;
+    height: 240px;
+  }
+  .update_user_button{
+      margin: 5px;
+      float: right;
+  }    
+  .add_properties{
+      border: 7px solid #CCCCCC;
+      height: 460px;
+      margin: auto;
+      padding: 5px;
+      width: 520px;
+  }
+  .add_properties_button{
+      margin-top: 30px;
+      float: right;
+  }
+  
   </style>
 
   <title>Prental</title>
@@ -73,9 +102,18 @@
 <body>
   <div class="header">
     <div class="menu">
+     <div class="user_nav">
       <a href="/"><span>Home</span></a> /
-      <a href="/users/signup"><span>Signup</span></a> /    
-      <a href="/users/login"><span>Login</span></a>
+      <a href="/users/signup"><span>Signup</span></a> / 
+      <a href="/users/:id/edit"><span>Edituser</span></a> / 
+      <a href="/users/login"><span>Login</span></a> /
+      <a href="/users/logout"><span>Signout</span></a>
+     </div>
+     <div class="properties_nav">
+      <a href="/properties/add"><span>Addproperty</span></a> / 
+      <a href="/properties"><span>Showproperty</span></a> / 
+      <a href="/properties/search"><span>Search</span></a>
+     </div>
     </div>
   </div>
   <%= yield %>
